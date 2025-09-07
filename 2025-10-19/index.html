@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferry Schedule - Sunday, October 19, 2025</title>
+    <title>Chebeague Ferry Schedule - Sunday, October 19, 2025</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <header class="page-header">
         <div class="header-row">
             <div class="title-section">
-                <h1>Ferry Schedule</h1>
-                <span class="date">Sunday, October 19, 2025</span>
+                <h1>Chebeague Ferry Schedule</h1>
+                <input type="date" id="date-picker" class="date-picker" value="2025-10-19" title="Jump to date">
             </div>
             <div class="header-links">
                 
@@ -180,7 +180,27 @@
 
     <footer class="page-footer">
         <p>Schedule information is subject to change. Please check with ferry operators for the most current information.</p>
-        <p>Generated on 2025-09-07 18:14</p>
+        <p>Generated on 2025-09-07 18:20</p>
     </footer>
+
+    <script>
+        document.getElementById('date-picker').addEventListener('change', function(e) {
+            const selectedDate = e.target.value;
+            if (selectedDate) {
+                // Get current path to determine if we're on a filtered view
+                const currentPath = window.location.pathname;
+                let targetPath = '/' + selectedDate + '/';
+                
+                // Preserve filter if we're on arrive or depart page
+                if (currentPath.includes('/arrive/')) {
+                    targetPath = '/' + selectedDate + '/arrive/';
+                } else if (currentPath.includes('/depart/')) {
+                    targetPath = '/' + selectedDate + '/depart/';
+                }
+                
+                window.location.href = targetPath;
+            }
+        });
+    </script>
 </body>
 </html>

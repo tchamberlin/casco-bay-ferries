@@ -46,6 +46,41 @@ body {
     opacity: 0.9;
 }
 
+.date-picker {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    color: white;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.date-picker:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.date-picker:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Date picker calendar icon styling */
+.date-picker::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.date-picker::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
 .header-links {
     display: flex;
     align-items: center;
@@ -335,6 +370,11 @@ body {
     
     .date {
         font-size: 1rem;
+    }
+    
+    .date-picker {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
     }
     
     .header-links {
